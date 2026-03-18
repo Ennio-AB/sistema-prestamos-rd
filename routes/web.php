@@ -20,10 +20,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // Clientes
-    Route::resource('clientes', ClientController::class)->names('clients');
+    Route::resource('clientes', ClientController::class)
+        ->names('clients')
+        ->parameters(['clientes' => 'client']);
 
     // Préstamos
-    Route::resource('prestamos', LoanController::class)->names('loans');
+    Route::resource('prestamos', LoanController::class)
+        ->names('loans')
+        ->parameters(['prestamos' => 'loan']);
     Route::get('prestamos/{loan}/contrato', [LoanController::class, 'contrato'])->name('loans.contrato');
 
     // Pagos (anidados en préstamo)
