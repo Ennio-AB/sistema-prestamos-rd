@@ -12,6 +12,8 @@ class User extends Authenticatable
 
     protected $table = 'usuarios';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'username',
         'password',
@@ -33,12 +35,6 @@ class User extends Authenticatable
             'activo'   => 'boolean',
             'fecha_registro' => 'datetime',
         ];
-    }
-
-    // Usar 'username' como campo de autenticación
-    public function getAuthIdentifierName(): string
-    {
-        return 'username';
     }
 
     public function isAdmin(): bool

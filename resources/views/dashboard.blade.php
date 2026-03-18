@@ -25,7 +25,7 @@
             label="Saldo Pendiente"
             value="RD${{ number_format($stats['saldo_pendiente'], 2) }}"
             icon="chart-bar"
-            color="{{ $stats['saldo_pendiente'] > 0 ? 'yellow' : 'green' }}"
+            color="gray"
         />
     </div>
 
@@ -33,27 +33,27 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
         <a href="{{ route('loans.index', ['estado' => 'activo']) }}"
            class="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
-            <div class="text-2xl font-bold text-green-600">{{ $stats['prestamos_activos'] }}</div>
+            <div class="text-2xl font-bold text-gray-800">{{ $stats['prestamos_activos'] }}</div>
             <div class="text-xs text-gray-500 mt-1">Activos</div>
         </a>
         <a href="{{ route('loans.index', ['estado' => 'atrasado']) }}"
            class="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
-            <div class="text-2xl font-bold text-yellow-600">{{ $stats['prestamos_atrasados'] }}</div>
+            <div class="text-2xl font-bold text-gray-800">{{ $stats['prestamos_atrasados'] }}</div>
             <div class="text-xs text-gray-500 mt-1">Atrasados</div>
         </a>
         <a href="{{ route('loans.index', ['estado' => 'en_cobranza']) }}"
            class="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
-            <div class="text-2xl font-bold text-orange-600">{{ $stats['en_cobranza'] }}</div>
+            <div class="text-2xl font-bold text-gray-800">{{ $stats['en_cobranza'] }}</div>
             <div class="text-xs text-gray-500 mt-1">En Cobranza</div>
         </a>
         <a href="{{ route('loans.index', ['estado' => 'legal']) }}"
            class="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
-            <div class="text-2xl font-bold text-red-600">{{ $stats['en_legal'] }}</div>
+            <div class="text-2xl font-bold text-gray-800">{{ $stats['en_legal'] }}</div>
             <div class="text-xs text-gray-500 mt-1">Legal</div>
         </a>
         <a href="{{ route('clients.index') }}"
            class="bg-white border border-gray-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
-            <div class="text-2xl font-bold text-blue-600">{{ $stats['clientes_total'] }}</div>
+            <div class="text-2xl font-bold text-gray-800">{{ $stats['clientes_total'] }}</div>
             <div class="text-xs text-gray-500 mt-1">Clientes</div>
         </a>
     </div>
@@ -99,7 +99,7 @@
                             <div class="text-sm font-medium text-gray-900 truncate">{{ $pago->loan->client->nombre }}</div>
                             <div class="text-xs text-gray-400">{{ $pago->fecha_pago->format('d/m/Y') }} · {{ $pago->usuario->nombre }}</div>
                         </div>
-                        <div class="text-sm font-semibold text-green-600">+RD${{ number_format($pago->monto, 2) }}</div>
+                        <div class="text-sm font-semibold text-gray-800">RD${{ number_format($pago->monto, 2) }}</div>
                     </div>
                 @empty
                     <div class="px-5 py-8 text-center text-gray-400 text-sm">No hay pagos registrados</div>

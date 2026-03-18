@@ -1,9 +1,8 @@
 @import 'tailwindcss';
 
+@source '../views/**/*.blade.php';
+@source '../js/**/*.js';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 
 @theme {
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
@@ -15,3 +14,6 @@
     --color-primary-800: #1e40af;
     --color-primary-900: #1e3a8a;
 }
+
+/* Alpine.js: oculta elementos con x-cloak hasta que Alpine inicializa */
+[x-cloak] { display: none !important; }
