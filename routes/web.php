@@ -36,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::post('prestamos/{loan}/pagos', [PaymentController::class, 'store'])->name('payments.store');
     Route::delete('pagos/{payment}', [PaymentController::class, 'destroy'])->name('payments.destroy');
 
+    // Configuración
+    Route::get('configuracion', fn() => view('settings.index'))->name('settings');
+
     // Acciones legales (anidadas en préstamo)
     Route::get('legal', [LegalActionController::class, 'index'])->name('legal.index');
     Route::get('prestamos/{loan}/legal/crear', [LegalActionController::class, 'create'])->name('legal.create');

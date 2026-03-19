@@ -2,11 +2,11 @@
 
 @php
 $styles = [
-    'activo'      => 'bg-gray-100 text-gray-700',
-    'atrasado'    => 'bg-gray-100 text-gray-700',
-    'en_cobranza' => 'bg-gray-100 text-gray-700',
-    'legal'       => 'bg-gray-100 text-gray-700',
-    'cerrado'     => 'bg-gray-100 text-gray-500',
+    'activo'      => 'background: #f0fdf4; color: #16a34a;',
+    'atrasado'    => 'background: #fef2f2; color: #dc2626;',
+    'en_cobranza' => 'background: #fff7ed; color: #ea580c;',
+    'legal'       => 'background: #faf5ff; color: #9333ea;',
+    'cerrado'     => 'background: #f9fafb; color: #6b7280;',
 ];
 $labels = [
     'activo'      => 'Activo',
@@ -17,6 +17,7 @@ $labels = [
 ];
 @endphp
 
-<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium {{ $styles[$estado] ?? 'bg-gray-100 text-gray-600' }}">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
+      style="{{ $styles[$estado] ?? 'background: #f9fafb; color: #6b7280;' }}">
     {{ $labels[$estado] ?? $estado }}
 </span>

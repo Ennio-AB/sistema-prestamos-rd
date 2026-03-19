@@ -1,25 +1,28 @@
 @props(['label', 'value', 'icon', 'color' => 'blue', 'subtitle' => null])
 
 @php
-$colors = [
-    'blue'   => 'bg-blue-50 text-blue-600 ring-blue-100',
-    'green'  => 'bg-green-50 text-green-600 ring-green-100',
-    'yellow' => 'bg-yellow-50 text-yellow-600 ring-yellow-100',
-    'red'    => 'bg-red-50 text-red-600 ring-red-100',
-    'gray'   => 'bg-gray-50 text-gray-600 ring-gray-100',
+$iconColors = [
+    'blue'   => 'background: #eff6ff; color: #3b82f6;',
+    'green'  => 'background: #f0fdf4; color: #22c55e;',
+    'yellow' => 'background: #fefce8; color: #eab308;',
+    'red'    => 'background: #fef2f2; color: #ef4444;',
+    'gray'   => 'background: #f9fafb; color: #6b7280;',
+    'purple' => 'background: #faf5ff; color: #a855f7;',
 ];
-$iconClass = $colors[$color] ?? $colors['blue'];
+$iconStyle = $iconColors[$color] ?? $iconColors['blue'];
 @endphp
 
-<div class="bg-white rounded-xl border border-gray-200 p-5 flex items-start gap-4 shadow-sm">
-    <div class="p-2.5 rounded-lg ring-1 {{ $iconClass }}">
-        <x-icon :name="$icon" class="w-6 h-6"/>
-    </div>
-    <div class="flex-1 min-w-0">
-        <p class="text-sm text-gray-500">{{ $label }}</p>
-        <p class="text-2xl font-bold text-gray-900 mt-0.5">{{ $value }}</p>
-        @if($subtitle)
-            <p class="text-xs text-gray-400 mt-1">{{ $subtitle }}</p>
-        @endif
+<div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+    <div class="flex items-start justify-between">
+        <div>
+            <p class="text-sm text-gray-500 font-medium">{{ $label }}</p>
+            <p class="text-2xl font-bold text-gray-900 mt-1">{{ $value }}</p>
+            @if($subtitle)
+                <p class="text-xs text-gray-400 mt-1">{{ $subtitle }}</p>
+            @endif
+        </div>
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style="{{ $iconStyle }}">
+            <x-icon :name="$icon" class="w-5 h-5"/>
+        </div>
     </div>
 </div>

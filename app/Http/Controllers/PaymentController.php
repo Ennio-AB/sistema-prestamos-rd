@@ -24,7 +24,15 @@ class PaymentController extends Controller
 
         $payments = $query->paginate(20)->withQueryString();
 
-        return view('payments.index', compact('payments'));
+        $stats = [
+            'total_monto'    => Payment::sum('monto'),
+            'total_count'    => Payment::count(),
+            'mes_monto'      => Payment::whereMonth('fecha_pago', now()->month)->whereYear('fecha_pago', now()->year)->sum('monto'),
+            'mes_count'      => Payment::whereMonth('fecha_pago', now()->month)->whereYear('fecha_pago', now()->year)->count(),
+            'saldo_pendiente' => Loan::whereIn('estado', ['activo','atrasado','en_cobranza','legal'])->get()->sum('saldo_pendiente'),
+        ];
+
+        return view('payments.index', compact('payments', 'stats'));
     }
 
     public function create(Loan $loan)

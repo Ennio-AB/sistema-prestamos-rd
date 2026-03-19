@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-blue-950">
+<html lang="es" class="h-full" style="background-color: #1a1f2e;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,7 @@
             </svg>
         </div>
         <h1 class="text-2xl font-bold text-white">PrestamoRD</h1>
-        <p class="text-blue-300 text-sm mt-1">Sistema de Gestión de Préstamos</p>
+        <p class="text-sm mt-1" style="color: #6b7280;">Sistema de Gestión de Préstamos</p>
     </div>
 
     {{-- Card --}}
@@ -70,7 +70,7 @@
         </form>
     </div>
 
-    <p class="text-center text-blue-400 text-xs mt-6">
+    <p class="text-center text-xs mt-6" style="color: #4b5563;">
         República Dominicana &copy; {{ date('Y') }}
     </p>
 </div>
