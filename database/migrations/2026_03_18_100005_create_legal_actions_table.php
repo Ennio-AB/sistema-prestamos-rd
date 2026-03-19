@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('legal_actions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('loan_id')->constrained('loans')->cascadeOnDelete();
-            $table->unsignedInteger('usuario_id');
+            $table->unsignedBigInteger('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios')->restrictOnDelete();
             $table->enum('tipo', [
                 'notificacion',

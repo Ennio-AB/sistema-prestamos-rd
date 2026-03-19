@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('loan_id')->constrained('loans')->cascadeOnDelete();
             $table->foreignId('installment_id')->nullable()->constrained('installments')->nullOnDelete();
-            $table->unsignedInteger('usuario_id');
+            $table->unsignedBigInteger('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios')->restrictOnDelete();
             $table->decimal('monto', 12, 2);
             $table->date('fecha_pago');

@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->constrained('clients')->cascadeOnDelete();
-            $table->unsignedInteger('usuario_id');
+            $table->unsignedBigInteger('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios')->restrictOnDelete();
             $table->decimal('monto', 12, 2)->comment('Monto principal del préstamo en RD$');
             $table->decimal('interes', 5, 2)->comment('Tasa de interés en porcentaje');
